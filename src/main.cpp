@@ -13,16 +13,16 @@ int count;
 
 void setup() {
 	Serial.begin(9600);
-
-  Serial.println("Setup motor to steps: " + (String)stepsPerRevolution);
-  pinMode(motorDirPin, OUTPUT);		// Direction pin for A4988
-  pinMode(motorStepPin, OUTPUT);	// Step pin for A4988
-  
-  Serial.println("Starting Initial Homing");
-  runHoming();
-  Serial.println("\nHomed to Starting Position");
-
-  count = 1;
+	
+	Serial.println("Setup motor to steps: " + (String)stepsPerRevolution);
+	pinMode(motorDirPin, OUTPUT);		// Direction pin for A4988
+	pinMode(motorStepPin, OUTPUT);	// Step pin for A4988
+	
+	Serial.println("Starting Initial Homing");
+	runHoming();
+	Serial.println("\nHomed to Starting Position");
+	
+	count = 1;
 }
 
 void loop() {
