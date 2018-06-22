@@ -6,7 +6,7 @@
 #define		motorStepPin		3
 #define		sensorSignalPin		1
 
-// Declare any used functions
+// Declare any used functions here
 void runHoming();
 
 int count;
