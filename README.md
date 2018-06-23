@@ -7,9 +7,11 @@
 Program contains libraries for helping arduino run a stepper motor using the A4988 steper driver.
 
 ## To Do:
-- Configure micro-stepping
-- Add move steps function
-- Add distance move (via belt) function
+* Separate sensor from stepper
+* Configure sensor high/low options
+* Add move steps function
+* Add distance move (via belt) function
+* Configure micro-stepping
 
 ## Changes:
 ### 0.0.2
