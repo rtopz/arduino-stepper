@@ -7,10 +7,13 @@ class stepper{
 		int motorDirectionPin;
 		int motorStepPin;
 		int sensorSignalPin;
+		int stepsPerRevolution;
 
 	public:
-		stepper(int motorDirectionPin, int motorStepPin, int sensorSignalPin);
+		stepper(int mDirPin, int mStepPin, int sSigPin, int stepsPerRev);
 		void runHoming();
+		void moveNumSteps(int steps);
+		void moveBeltDistance(int distance, double beltPitch);
 };
 
 #endif
