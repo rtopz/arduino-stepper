@@ -13,7 +13,7 @@ stepper::stepper(int mDirPin, int mStepPin, int sSigPin, int stepsPerRev) {
 }
 
 // Runs a home of the stepper 
-void stepper::runHoming() {
+void stepper::runSensorHoming() {
 	bool loop = true;	// Used to break out of infinite loop
 	int sensorVoltage = 0;
 
