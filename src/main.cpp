@@ -18,13 +18,13 @@ void setup() {
 	Serial.begin(9600);
 
 	Serial.println("Initialize stepper motor 1");
-	motor1 = new stepper(m1_dirPin, m1_stepPin, s1_sigPin, m1_stepsPerRev);
+	motor1 = new stepper(m1_dirPin, m1_stepPin, m1_stepsPerRev);
 
 	Serial.println("Initialize sensor 1");
 	sensor1 = new sensor(s1_sigPin);
 
 	Serial.println("Homing motor 1");
-	motor1->runSensorHoming();
+	motor1->runSensorHoming(sensor1);
 }
 
 void loop() {
