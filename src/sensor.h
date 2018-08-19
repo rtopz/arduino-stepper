@@ -5,11 +5,13 @@
 class sensor {
 	private:
 		int sensorSignalPin;
-		int sensorVoltage;
+		bool sensorVoltage;
+		bool sensorTypeOpen;
 
 	public:
-		sensor(int sSigPin);
-		int readVoltage();
+		sensor(int sSigPin, bool sTypeOpen);
+		bool readSensor();
+		bool getSensorType();
 };
 
 #endif

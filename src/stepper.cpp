@@ -16,15 +16,17 @@ stepper::stepper(int iMDirPin, int iMStepPin, int iStepsPerRev) {
 //  before running a home.
 void stepper::runSensorHoming(sensor * sensorObj) {
 	bool bLoop = true;	// Used to break out of infinite loop
-	int sensorVoltage = 0;
+	bool endstopHit = false;
 
 	// Set the rotation direction for the initial homing
 	// HIGH =  & LOW =
 	digitalWrite(motorDirectionPin, HIGH);
 
 	while(bLoop) {
-		sensorVoltage = sensorObj->readVoltage();	// Read the sensor before moving a step
-		if(sensorVoltage < 400) {
+		endstopHit = sensorObj->readSensor();	// Read the sensor before moving a step
+		
+		// Check sensor to see if it was triggered
+		if(!endstopHit) {
 			digitalWrite(motorStepPin, HIGH);			// Set step pin to high to rotate
 			delay(2);									// Delay added to not immediately stop when switching to low voltage
 			digitalWrite(motorStepPin, LOW);			// Set step pin to low to pause rotate
