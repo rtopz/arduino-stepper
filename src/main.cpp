@@ -17,13 +17,13 @@ int count;
 void setup() {
 	Serial.begin(9600);
 
-	Serial.println("Initialize stepper motor 1");
+	Serial.println(F("Initialize stepper motor 1"));
 	motor1 = new stepper(m1_dirPin, m1_stepPin, m1_stepsPerRev);
 
-	Serial.println("Initialize sensor 1 as type = Normally Open");
+	Serial.println(F("Initialize sensor 1 as type = Normally Open"));
 	sensor1 = new sensor(s1_sigPin, true);
 
-	Serial.println("Homing motor 1");
+	Serial.println(F("Homing motor 1"));
 	motor1->runSensorHoming(sensor1);
 }
 

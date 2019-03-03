@@ -27,13 +27,15 @@ void stepper::runSensorHoming(sensor * sensorObj) {
 		
 		// Check sensor to see if it was triggered
 		if(!endstopHit) {
-			digitalWrite(motorStepPin, HIGH);			// Set step pin to high to rotate
-			delay(2);									// Delay added to not immediately stop when switching to low voltage
-			digitalWrite(motorStepPin, LOW);			// Set step pin to low to pause rotate
-			delay(3);									// Delay added to slow down rotation speed a bit
+			digitalWrite(motorStepPin, HIGH);		// Set step pin to high to rotate
+			delay(2);								// Delay added to not immediately stop when switching to low voltage
+			digitalWrite(motorStepPin, LOW);		// Set step pin to low to pause rotate
+			delay(3);								// Delay added to slow down rotation speed a bit
 			Serial.print(".");
 		}
 		else {
+			Serial.println("");
+			Serial.println(F("Endstop hit, reversing motor direction"));
 			// Reverse the motor direction to prevent crashing into sensor
 			if(digitalRead(motorDirectionPin) == HIGH) {
 				digitalWrite(motorDirectionPin, LOW);
@@ -48,6 +50,13 @@ void stepper::runSensorHoming(sensor * sensorObj) {
 }
 
 void stepper::moveNumSteps(int steps) {
+	Serial.print((String)"" + F("Moving motor ") + (String)steps + F(" steps"));
 	for (int x=0; x < steps; x++) {
+		digitalWrite(motorStepPin, HIGH);		// Set step pin to high to rotate
+		delay(2);								// Delay added to not immediately stop when switching to low voltage
+		digitalWrite(motorStepPin, LOW);		// Set step pin to low to pause rotate
+		delay(3);	
+		Serial.print(".");
 	}
+	Serial.println("Done");
 }
